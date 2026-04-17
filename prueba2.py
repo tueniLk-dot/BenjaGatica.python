@@ -48,37 +48,36 @@
 
 # nacionaidad: chileno:+300mil, extranjero= 0
 
-ingreso=int(input("Ingrese su sueldo"))
+# ingreso=int(input("Ingrese su sueldo"))
 
-print("1. basico")
-print("2. media")
-print("3. superior")
-edu=input("nivel educacion: ")
+# print("1. basico")
+# print("2. media")
+# print("3. superior")
+# edu=input("nivel educacion: ")
 
-nac=input("nacionalidad: ")
+# nac=input("nacionalidad: ")
 
-credito=0
-if ingreso >= 500000 and ingreso <= 1000000:
-    credio=credito + 300000
-elif ingreso >= 100001 and ingreso <= 1500000:
-    credito=credito+650000
-elif ingreso >= 150001 :
-    creduto=credito+100000
-else:
-    print("no tiene sueldo suficiente")
+# credito=0
+# if ingreso >= 500000 and ingreso <= 1000000:
+#     credio=credito + 300000
+# elif ingreso >= 100001 and ingreso <= 1500000:
+#     credito=credito+650000
+# elif ingreso >= 150001 :
+#     creduto=credito+100000
+# else:
+#     print("no tiene sueldo suficiente")
 
-if edu==1:
-    print("no hay credito")
-elif edu==2:
-    credio=credio*1.3
-elif edu==3:
-    credio=credio*1.5
+# if edu==1:
+#     print("no hay credito")
+# elif edu==2:
+#     credio=credio*1.3
+# elif edu==3:
+#     credio=credio*1.5
 
-if nac == "chilena":
-    credito=credito+300000
+# if nac == "chilena":
+#     credito=credito+300000
 
-else: 
-    print("no tiene bono por nacionalidad")
+# else: 
+#     print("no tiene bono por nacionalidad")
 
 
-print("Su puntaje de credito es: ",credito)
