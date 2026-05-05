@@ -24,7 +24,7 @@
 # ademas pida el pin que debe ser 3435
 # los dos deben star correctos para acceder al sstema 
 
- 
+
 
 # password= "temu"
 # pin=3435
@@ -80,4 +80,31 @@
 # else: 
 #     print("no tiene bono por nacionalidad")
 
+#### sacando promedio variable
 
+# notas=int(input("Ingrese la cantidad de notas: "))
+# cantN=0
+# div=0
+# for i in range(notas):
+#     nota=float(input("Ingrese la nota: "))
+#     cantN=cantN+nota
+#     div=div+1
+#     promedio=cantN/div
+# print("El promedio es: ", promedio)
+
+## suma y resta for
+
+# num=int(input("ingresa un numero para la suma "))
+# suma=int(input("ingrese otro numero para la suma "))
+# for i in range(10):
+#     suma+i+1
+# print(num,"+",suma,"=",num+suma)
+
+# num2=int(input("ingresa un numero para la suma "))
+# rest=int(input("ingrese otro numero para la suma "))
+# for i in range(10):
+#     rest+i+1
+# print(num2,"-",rest,"=",num2-rest)
+
+
+##

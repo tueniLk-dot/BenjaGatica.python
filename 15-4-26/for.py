@@ -53,7 +53,9 @@
 #     print('las consonantes de su nombre son: ', conso)
 
 
-num=int(input('Ingrese la cantidad de alumnos'))
+# num=int(input('Ingrese la cantidad de alumnos'))
 
-aprobados=0
-reprobados=0
+# aprobados=0
+# reprobados=0
+
+print
