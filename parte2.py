@@ -1,4 +1,4 @@
-ximport random
+import random
 
 
 r2=3
