@@ -174,3 +174,61 @@ vegetalesMenuDiccionario()
 # de diccionarios.
 
 
+ #Diccionario con diccionarios
+pcs={   
+    1:{"name": "MSI", "pecio": 1649.00 },#0
+    2:{"name": "Dell", "precio": 1279.99},  #1  
+    3:{"name": "Lenovo)", "precio": 649.00},   #2
+}
+
+    #Lista con diccionarios
+# pcs=[
+#    {"nombre": "msi", "precio": 3000}, #0
+#    {"nombre": "hp", "precio": 1500},     #1  
+#    {"nombre": "acer", "precio": 1200}   #2
+# ]
+def addNotebook():
+    print("-"*25)
+    add=input("Ingrese el nombre del producto nuevo ")
+    newKey=list(pcs.keys())[-1]
+    pcs[newKey+1]=add
+    showPcs()
+def delPcs():
+    print("-"*25)
+    showPcs()
+    eliminar=int(input())
+    del showPcs [eliminar]
+def actListPc():
+    print("-"*25)
+    showPcs()
+    act=int(input( "Que Computador desea actualizar? "))
+    pcs[act]=input("Ingrese nuevo nombre de computador: ")
+def showPcs():
+    print("-"*25)
+    for num , nombre in pcs.items():
+         print(f"{num} = {nombre}")
+def tueniPcs():
+    while True:
+        try:
+            print('''
+            1.- Agregar computadoras        
+            2.- Eliminar computadora
+            3.- Actualizar diccionario de computadora
+            4.- Mostrar computadora
+            5.- Salir
+            ''')
+            op=int(input("Selecciona una opcion "))
+            match op:
+                case 1:
+                    addNotebook()
+                case 2:
+                    delPcs()
+                case 3:
+                    actListPc()
+                case 4:
+                    showPcs()
+                case _:
+                    print("Opcion invalida")
+        except Exception as e:
+            print("Error", e)
+tueniPcs()
