@@ -140,33 +140,33 @@ print(productosList[0]["nombre"]) #nombre de la naracuya
 
 
 
-def vegetalesMenuDiccionario():
-   while True:
-      try:
-         print("-"*20)
-         print("1.- Agregar Vegetal")
-         print("2.- Eliminar Vegetal")
-         print("3.- Actualizar Vegetal")
-         print("4.- Mostrar Vegetal")
-         print("5.- Salir")
-         op=int(input("Seleccione una opcion: "))
-         match op:
-               case 1:
-                  agregarProducto()
-               case 2:
-                  eliminarProducto()
-               case 3:
-                  actualizarProducto()
-               case 4:
-                  MostrarProducto()
-               case 5:
-                  print("Salir")
-                  break
-               case _:
-                    print("Opcion invalida")  
-      except Exception as e:
-         print("Error:",e)
-vegetalesMenuDiccionario()
+# def vegetalesMenuDiccionario():
+#    while True:
+#       try:
+#          print("-"*20)
+#          print("1.- Agregar Vegetal")
+#          print("2.- Eliminar Vegetal")
+#          print("3.- Actualizar Vegetal")
+#          print("4.- Mostrar Vegetal")
+#          print("5.- Salir")
+#          op=int(input("Seleccione una opcion: "))
+#          match op:
+#                case 1:
+#                   agregarProducto()
+#                case 2:
+#                   eliminarProducto()
+#                case 3:
+#                   actualizarProducto()
+#                case 4:
+#                   MostrarProducto()
+#                case 5:
+#                   print("Salir")
+#                   break
+#                case _:
+#                     print("Opcion invalida")  
+#       except Exception as e:
+#          print("Error:",e)
+# vegetalesMenuDiccionario()
 
 #Cambiar la funcion actualizar para que solo 
 # actualice una solo key 
@@ -188,25 +188,50 @@ pcs={
 #    {"nombre": "acer", "precio": 1200}   #2
 # ]
 def addNotebook():
-    print("-"*25)
-    add=input("Ingrese el nombre del producto nuevo ")
-    newKey=list(pcs.keys())[-1]
-    pcs[newKey+1]=add
-    showPcs()
+   print("-"*25)
+   nombre = input("Ingrese el nombre del producto nuevo: ")
+   precio = float(input("Ingrese el precio: "))
+   newKey = list(pcs.keys())[-1]
+   pcs[newKey + 1] = {"nombre": nombre, "precio": precio}
+   print("-"*25)
+
 def delPcs():
-    print("-"*25)
-    showPcs()
-    eliminar=int(input())
-    del showPcs [eliminar]
+   print("-"*25)
+   showPcs()
+   eliminar=input(int("Eliminado"))
+   if 0 <= eliminar < len(pcs):   # ← validar que el índice exista
+      pcs.pop(eliminar)           # ← borrar de la lista "pcs"
+      showPcs()
+   else:
+      print("Eleccion no válido.")
+   print("-"*25)
+
 def actListPc():
-    print("-"*25)
-    showPcs()
-    act=int(input( "Que Computador desea actualizar? "))
-    pcs[act]=input("Ingrese nuevo nombre de computador: ")
+   print("-" * 25)
+   showPcs()
+   key = int(input("¿Qué computador desea actualizar? "))
+   if key not in pcs:
+      print("Clave no encontrada.")
+      return
+   print("¿Qué desea actualizar?")
+   print("  1.- Nombre")
+   print("  2.- Precio")
+   op = int(input("Opción: "))
+   if op == 1:
+      pcs[key]["nombre"] = input("Nuevo nombre: ")        # ← solo input(), sin int()
+   elif op == 2:
+      pcs[key]["precio"] = float(input("Nuevo precio: "))
+   else:
+      print("Opción inválida.")
+      return
+   showPcs()
+   print("-"*25)
 def showPcs():
-    print("-"*25)
-    for num , nombre in pcs.items():
+   print("-"*25)
+   for num , nombre in pcs.items():
          print(f"{num} = {nombre}")
+   print("-"*25)
+
 def tueniPcs():
     while True:
         try:
@@ -219,15 +244,14 @@ def tueniPcs():
             ''')
             op=int(input("Selecciona una opcion "))
             match op:
-                case 1:
-                    addNotebook()
-                case 2:
-                    delPcs()
-                case 3:
-                    actListPc()
-                case 4:
-                    showPcs()
-                case _:
+                  case 1:   addNotebook()
+                  case 2:   delPcs()
+                  case 3:   actListPc()
+                  case 4:   showPcs()
+                  case 5:
+                     print("Cerrando programa...")
+                     break
+                  case _:
                     print("Opcion invalida")
         except Exception as e:
             print("Error", e)
