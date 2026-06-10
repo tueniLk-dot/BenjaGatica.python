@@ -129,14 +129,16 @@ def actualizarProducto():
 #     print(f"{num}.- {veg}")
 
 ##Lista con diccionarios
-productosList=[
-   {"nombre": "Maracuyá", "precio": 3000}, #0
-   {"nombre": "Pera", "precio": 1500},     #1  
-   {"nombre": "Cebolla", "precio": 1200}   #2
-]
+# productosList={
+#   1: {"nombre": "Maracuyá", "precio": 3000}, #0
+#    2:{"nombre": "Pera", "precio": 1500},     #1  
+#    3:{"nombre": "Cebolla", "precio": 1200}   #2
+# }
 
-print(productosList[2]["precio"]) #precio de la cebolla
-print(productosList[0]["nombre"]) #nombre de la naracuya
+# print(productosList.key())
+# print(productosList)
+# print(productosList[2]["precio"]) #precio de la cebolla
+# print(productosList[0]["nombre"]) #nombre de la naracuya
 
 
 
@@ -175,84 +177,206 @@ print(productosList[0]["nombre"]) #nombre de la naracuya
 
 
  #Diccionario con diccionarios
-pcs={   
-    1:{"name": "MSI", "pecio": 1649.00 },#0
-    2:{"name": "Dell", "precio": 1279.99},  #1  
-    3:{"name": "Lenovo)", "precio": 649.00},   #2
+# pcs={   
+#     1:{"name": "MSI", "pecio": 1649.00 },#0
+#     2:{"name": "Dell", "precio": 1279.99},  #1  
+#     3:{"name": "Lenovo)", "precio": 649.00},   #2
+# }
+
+#     #Lista con diccionarios
+# # pcs=[
+# #    {"nombre": "msi", "precio": 3000}, #0
+# #    {"nombre": "hp", "precio": 1500},     #1  
+# #    {"nombre": "acer", "precio": 1200}   #2
+# # ]
+# def addNotebook():
+#    print("-"*25)
+#    nombre = input("Ingrese el nombre del producto nuevo: ")
+#    precio = float(input("Ingrese el precio: "))
+#    newKey = list(pcs.keys())[-1]
+#    pcs[newKey + 1] = {"nombre": nombre, "precio": precio}
+#    print("-"*25)
+
+# def delPcs():
+#    print("-"*25)
+#    showPcs()
+#    eliminar=input(int("Eliminado"))
+#    if 0 <= eliminar < len(pcs):   # ← validar que el índice exista
+#       pcs.pop(eliminar)           # ← borrar de la lista "pcs"
+#       showPcs()
+#    else:
+#       print("Eleccion no válido.")
+#    print("-"*25)
+
+# def actListPc():
+#    print("-" * 25)
+#    showPcs()
+#    key = int(input("¿Qué computador desea actualizar? "))
+#    if key not in pcs:
+#       print("Clave no encontrada.")
+#       return
+#    print("¿Qué desea actualizar?")
+#    print("  1.- Nombre")
+#    print("  2.- Precio")
+#    op = int(input("Opción: "))
+#    if op == 1:
+#       pcs[key]["nombre"] = input("Nuevo nombre: ")        # ← solo input(), sin int()
+#    elif op == 2:
+#       pcs[key]["precio"] = float(input("Nuevo precio: "))
+#    else:
+#       print("Opción inválida.")
+#       return
+#    showPcs()
+#    print("-"*25)
+# def showPcs():
+#    print("-"*25)
+#    for num , nombre in pcs.items():
+#          print(f"{num} = {nombre}")
+#    print("-"*25)
+
+# def tueniPcs():
+#     while True:
+#         try:
+#             print('''
+#             1.- Agregar computadoras        
+#             2.- Eliminar computadora
+#             3.- Actualizar diccionario de computadora
+#             4.- Mostrar computadora
+#             5.- Salir
+#             ''')
+#             op=int(input("Selecciona una opcion "))
+#             match op:
+#                   case 1:   addNotebook()
+#                   case 2:   delPcs()
+#                   case 3:   actListPc()
+#                   case 4:   showPcs()
+#                   case 5:
+#                      print("Cerrando programa...")
+#                      break
+#                   case _:
+#                     print("Opcion invalida")
+#         except Exception as e:
+#             print("Error", e)
+# tueniPcs()
+
+
+pokemon={
+   1:{"nombre": "blablabla",
+      "lvl": 14,
+      "hp" : 32,
+      "atk" : 
+      {
+         1:{"Nombe" : "plakaje", "daño" : 33},
+         2:{"Nombe" : "plakaje", "daño" : 33},
+         3:{"Nombe" : "plakaje", "daño" : 33},
+         4:{"Nombe" : "plakaje", "daño" : 33}
+      },
+      "def": 10,
+      "type" : "normal",
+      "vel" : 12,
+      
+      
+         }
 }
 
-    #Lista con diccionarios
-# pcs=[
-#    {"nombre": "msi", "precio": 3000}, #0
-#    {"nombre": "hp", "precio": 1500},     #1  
-#    {"nombre": "acer", "precio": 1200}   #2
-# ]
-def addNotebook():
-   print("-"*25)
-   nombre = input("Ingrese el nombre del producto nuevo: ")
-   precio = float(input("Ingrese el precio: "))
-   newKey = list(pcs.keys())[-1]
-   pcs[newKey + 1] = {"nombre": nombre, "precio": precio}
-   print("-"*25)
 
-def delPcs():
-   print("-"*25)
-   showPcs()
-   eliminar=input(int("Eliminado"))
-   if 0 <= eliminar < len(pcs):   # ← validar que el índice exista
-      pcs.pop(eliminar)           # ← borrar de la lista "pcs"
-      showPcs()
-   else:
-      print("Eleccion no válido.")
-   print("-"*25)
 
-def actListPc():
-   print("-" * 25)
-   showPcs()
-   key = int(input("¿Qué computador desea actualizar? "))
-   if key not in pcs:
-      print("Clave no encontrada.")
-      return
-   print("¿Qué desea actualizar?")
-   print("  1.- Nombre")
-   print("  2.- Precio")
-   op = int(input("Opción: "))
-   if op == 1:
-      pcs[key]["nombre"] = input("Nuevo nombre: ")        # ← solo input(), sin int()
-   elif op == 2:
-      pcs[key]["precio"] = float(input("Nuevo precio: "))
-   else:
-      print("Opción inválida.")
-      return
-   showPcs()
-   print("-"*25)
-def showPcs():
-   print("-"*25)
-   for num , nombre in pcs.items():
-         print(f"{num} = {nombre}")
-   print("-"*25)
+'''006 ej dicc'''
 
-def tueniPcs():
+
+productosDicc={
+   1:{"nombre": "Maracuyá", "precio": 3000},
+   2:{"nombre": "Pera", "precio": 1500},
+   3:{"nombre": "Cebolla", "precio": 1200}
+}
+productosDicc[4]={"nombre": "Tomate", "precio": 1500} 
+
+
+# print(productosDicc.keys())
+# print(productosDicc.values())
+# print(productosDicc.items())
+# listadeKeys=list(productosDicc.keys())
+
+# print(list(productosDicc.keys())[-1])
+carrito=[]
+def agregaProducto():
+    nombreP=input("Ingrese el nombre del Producto: ")
+    precioP=int(input("Ingrese el precio del Producto: "))
+    productosDicc[list(productosDicc.keys())[-1]+1]={"nombre": nombreP, "precio": precioP} 
+
+def muestraProducto():
+    print("-"*30)
+    for nombre, precio in productosDicc.items():
+        print(f"{nombre} .-  {precio}")
+    print("-"*30)
+
+def eliminaProducto():
+    muestraProducto()
+    borra=int(input("Cual desea eliminar?: "))
+    del productosDicc[borra]
+    
+def actualiazaProducto():
+    muestraProducto()
+    actualiza=int(input("Cual producto desea actualizar?: "))
+    nuevonombre=input("ingrese el nuevo nombre") 
+    nuevoPRECIO=input("ingrese el nuevo precio") 
+    productosDicc[actualiza]={"nombre":nuevonombre , "precio": nuevoPRECIO}
+
+def comprar():
+    muestraProducto()
+    try:
+        comprar=int(input("Cual producto desea comprar ?: "))
+        if comprar in productosDicc:
+            print(f"Usted ha comprado {productosDicc[comprar]['nombre']} por un valor de {productosDicc[comprar]['precio']}")
+            carrito.append(productosDicc[comprar])
+        else:
+            print("Producto no existe")
+            
+    except ValueError:
+         print("Debe ingresar un número válido")
+          
+      
+def boleta():
+    total=0
+    for p in carrito:
+        try:
+            total+=int(p["precio"])
+            nombreP= ""
+            precioP = 0 +1
+            p[list(productosDicc.keys())[-1]+1]={"nombre": nombreP, "precio": precioP} 
+
+        except (ValueError, TypeError):
+            print(f"Precio inválido para {p.get('nombre','?')}, contando como 0")
+    iva=total*0.19
+    print(f"El total de su compra es {total} y el IVA es {iva}")
+    print(f"El total a pagar es  {total+iva} ")
+def productosMenu():
     while True:
         try:
-            print('''
-            1.- Agregar computadoras        
-            2.- Eliminar computadora
-            3.- Actualizar diccionario de computadora
-            4.- Mostrar computadora
-            5.- Salir
-            ''')
-            op=int(input("Selecciona una opcion "))
+            print("1.- Agregar Producto")
+            print("2.- Eliminar Producto")
+            print("3.- Actualizar Producto")
+            print("4.- Mostrar Producto")
+            print("5.- Comprar Productos")
+            print("6.- Crear Boleta (calcula IVA) y Salir")
+            op=int(input("Seleccione una opcion: "))
             match op:
-                  case 1:   addNotebook()
-                  case 2:   delPcs()
-                  case 3:   actListPc()
-                  case 4:   showPcs()
-                  case 5:
-                     print("Cerrando programa...")
-                     break
-                  case _:
-                    print("Opcion invalida")
+                case 1:
+                    agregaProducto()
+                case 2:
+                    eliminaProducto()
+                case 3:
+                    actualiazaProducto()
+                case 4:
+                    muestraProducto()
+                case 5:
+                    comprar()
+                case 6:
+                    boleta()
+                    print("Salir")
+                    break
+                case _:
+                    print("Opcion invalida")  
         except Exception as e:
-            print("Error", e)
-tueniPcs()
+            print("Error :", e)
+productosMenu()
