@@ -31,7 +31,10 @@ def quitarPelis():
     peli=int(input("Que pelicula se quita ?: "))
     pelis.pop(peli-1)
     print("Pelicula eliminada ")
-
+def actTitulo():
+    mostrarPeli()    
+    actName=int(input("A que pelicula actualzara/ cambiaras el nombre?: " ))
+    pelis  [actName-1]["tittle"]=input("nombre actualizado a: ")
 
 def mostrarPeli():
     if len(pelis)==0:
@@ -44,7 +47,7 @@ def mostrarPeli():
 def mostrarTitulos():
     for mostrar in pelis:
         print(mostrar["tittle"])
-def salir():
+def salir7():
     print("Salida")
 
 while True:
@@ -64,24 +67,20 @@ while True:
             case 2:
                 quitarPelis()
             case 3:
-                mostrarPeli()    
-                actName=input("Que pelicula actualzara?: " )
-                pelis  [actName-1]=input("Cual sera el nuevo nombre?:  ")
-                print("actualizado: ", mostrarPeli()    )
+                actTitulo()
             case 4:
                 mostrarPeli()
             case 5:
                 mostrarTitulos()
             case 6:
-            
-                print
+                print("")
             case 7:
-                salir()
+                salir7()
                 break
             case _:
                 print("Error de seleccion, reintente")
     except Exception as e:
-        print("Seleccion invalida",e )
+        print("Seleccion invalida, reintente",e )
 
 
 
