@@ -28,12 +28,44 @@ def quitarP():#2
     mostrarP()
     el=int(input("Que pintura va a eliminar? "))
     pintulas.pop(el-1)
-def formatoide():
-    print
+def actP():
+    mostrarP()
+    act=int(input('''Que desea actualizar?
+                              1.- color
+                              2.- capacidad
+                              3.- formato 
+                  ''')) 
+    if not pintulas:
+        return
+    p=pintulas[act-1]
+    match act:
+        case 1:
+            color=input("Que color actualizara?")
+            p["color"] = input("Nuevo color: ").strip()
+            {"color" : color}
+            print("✅ Color actualizado.")
+        case 2:
+            
+                capac=input("Que capacidad actualizara?")
+                p["capacidad"] = int(input("Nueva capacidad: "))
+                {"capacidad":capac}
+                print("✅ Capacidad actualizada.")
+               
+            
+        case 3:
+            formato=input("Que formato actualizara?")
+            p["formato"] = input("Nuevo formato: ").strip()
+            {"formato":formato}
+            print("✅ Formato actualizado.")
+        case _:
+            print("❌ Opción inválida.")
 def mostrarP():
     if len(pintulas)==0:
         print("No hay pacientes")
     else:
+        print("--"*20)
+        print("Estas son las pinturas disponibles:")
+        print("--"*20)
         c=1
         for p in pintulas:
             print(f"{c} .- {p}")
@@ -54,25 +86,11 @@ while True:
             case 2:
                 quitarP()
             case 3:
-                act=int(input('''Que desea actualizar?
-                              1.- color
-                              2.- capacidad
-                              3.- formato'''))
-                if pintulas[0]["formato"] == "tarro":
-                    contador_tarro += 1
-                elif pintulas["formato"] == "":
-                    print("⚠️  Formato vacío")
-                else:
-                    print(f"   (formato distinto a tarro: {pintulas['formato']})")
- 
-                print(f"\nTotal de pinturas en formato tarro: {contador_tarro}")
- 
- 
-                
+                actP()
             case 4:
                 mostrarP()
             case 0:
-                print("saliendo")
+                print("saliendo") 
                 break
     except Exception as e:
         print("error, invalido, reintente", e)
