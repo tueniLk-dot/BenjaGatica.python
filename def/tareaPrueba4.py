@@ -117,68 +117,47 @@
 
 # usa lista o diccionario segun le acomode mas
 parking={
-    1:["ab1234", "ggwn13",],
-    2:["Ke2324"],
+    1:[],
+    2:[],
     3:[],
     4:[],
 }
 maximEsp=80
 ganancia=0
 def ingresarVehiculo():
-    global ganancia
-    patente= input('''Ingrese la PATENTE de su vehiculo''')
-                        
-    tiposs=input("Ingrese el tipo de su veihiculo \n1- ligero = $2000 \n2- mediano = $3000 \n3- grande = $3500 ")  
-    
-    match tiposs:
-        case 1:
-            precio=2000
-            tiposs=print(f"Tu vehiculo es tipo: {precio}")
-        case 2:
-            precio=3000
-            tiposs=print(f"Tu vehiculo es tipo: {precio}")
-        case 3:
-            precio=3500
-            tiposs=print(f"Tu vehiculo es tipo: {precio}")
-        case _:
-            print("seleccion invalida.")
-            # piso con espacio
-    piso_disponible = None
-    for i in parking(1,20):
-        print(i, "x" , i+1 , "=", i*(i+1))
-    print(i)
-
-    # for piso, patente in parking.items():
-    #     if len(patente) < maximEsp:
-    #         piso_disponible = piso
-    #         break
- 
-    if piso_disponible is None:
-        print("❌ Estacionamiento lleno. No hay espacios disponibles.")
-        return
- 
-    parking[piso_disponible].append(patente)
-    ganancia += precio
-    print(f"✅ Vehículo {patente} ({tiposs}) ingresado en el Piso {piso_disponible}.")
-    print(f"   Cobro: ${precio}")
-    # if patente in tipo==ligero:
-    #     tipo=2000
-    # elif patente in tipo==mediano:
-    #     tipo=3000
-    # elif patente in tipo==grance:
-    #     tipo=3500
-    # else:   
-    #     print("Seleccion invalida, reintenta")
-    
-
+    nievoIngreso=int(input('''Ingresa el tipo de tu vehiculo: 
+                           1- Ligero=2000
+                           2- Mediano=3000
+                           3- Largo=3500
+                           '''))
+    costo=0
+    if parking[nievoIngreso-1]=="ligero".lower():
+        costo==2000
+    elif nievoIngreso=="mediano".lower():
+        costo==3000
+    elif nievoIngreso=="grande".lower():
+        costo==3500
+    else: print("Seleccion invalida")
+                
 def contarGanancias():
-     
-    print(f"ganancias totales= ${ganancia}" )
+    tiposs=int(input("Ingrese el tipo de su veihiculo \n1- ligero = $2000 \n2- mediano = $3000 \n3- grande = $3500 "))  
+    if tiposs== "ligero":
+        tiposs=2000
+    elif tiposs=="mediano":
+        tiposs=3000
+    elif tiposs=="grande":
+        tiposs=3500
+    else: print("seleccion invalida")
+
+    print(f"ganancias totales= ${tiposs}" )
 
 def contarVehiculos():
-
-    for  estacionamientos in parking[estacionamientos]:    
-        print(f"Los {estacionamientos} ocupados son: {parking}")
+    parking
+    contador=0
+    for  estacionamientos in parking:
+        if estacionamientos<10:
+            estacionamientos+=1   
+        print(f"Los {contador} ocupados son: {parking}")
 
     
     
@@ -191,14 +170,13 @@ while True:
                     3.- Contar vehiculos 
                     0.- Salir
                     '''))
-        
         match op:
             case 1:
                 ingresarVehiculo()
             case 2:
                 contarGanancias()
             case 3:
-                print()
+                contarVehiculos()
             case 0: 
                 print("Salida")
                 break
