@@ -1,0 +1,46 @@
+#Funciones guia examen
+ 
+ 
+ 
+autos = {
+    'A001' : ['Toyota','Corolla',2010,5],
+    'A002' : ['Ford', 'Ranger',2019,4],
+    'A003' : ['Chevrolet', 'Spark',2022,4],
+    'A004' : ['Suzuki', 'Aerio',2005,4],
+    'A005' : ['Toyota','Yaris',2015,5],
+    'A006' : ['Chevrolet', 'Impala',1950,1],
+}
+operaciones = {
+    'A001' : ['01-01-2024','12-12-2025'],
+    'A002' : ['07-08-2024','Pendiente'],
+    'A003' : ['09-01-2025','Pendiente'],
+    'A004' : ['24-03-2025','Pendiente'],
+    'A005' : ['24-03-2024','24-07-2024'],
+    'A006' : ['24-03-2024','24-09-2024'],
+}
+print(operaciones["A002"][-1]) # -1 muestra el ltimo y 0 el primero
+# pendiente es q aun no se vende
+
+#funcion para mostrar los autos
+
+def mostrarAutos(diccio):
+    for id, auto in diccio.items():
+        print(f"{id}: {auto}")
+mostrarAutos(autos)
+print("-"*50)
+#muestrasolo autos vendidos
+def mostrarVendid(ope):
+    for id, auto in ope.items():
+        if operaciones[id][-1]!="Pendiente":
+            print(f"{id}: {auto}")
+mostrarVendid(autos)
+print("-"*25,"Paso 1", "-"*25)
+# #paso1
+def autos_vendidos_por_marca(marca):
+    total=0
+    for id, auto in autos.items():
+        if auto [0].lower()==marca.lower():
+            if operaciones[id][-1]!="Pendiente":
+                total+=1
+    print(f"El total de autos vendidos es {total} en la marca {marca}")
+autos_vendidos_por_marca("chevrolet")
