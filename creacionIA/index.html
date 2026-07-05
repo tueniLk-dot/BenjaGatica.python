@@ -1,0 +1,242 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi novia? 🐱❤️</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #ffe6eb;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.3);
+            max-width: 450px;
+            width: 90%;
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            color: #ff4a75;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        /* Contenedor de Estados */
+        .media-container {
+            height: 180px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 5rem;
+        }
+
+        .decorations {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* Botones */
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            position: relative;
+            height: 50px;
+        }
+
+        button {
+            padding: 12px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        #btn-yes {
+            background-color: #ff4a75;
+            color: white;
+        }
+
+        #btn-yes:hover {
+            transform: scale(1.1);
+            background-color: #ff2a5e;
+        }
+
+        #btn-no {
+            background-color: #94a3b8;
+            color: white;
+            position: relative;
+        }
+
+        /* ANIMACIONES Y ESTADOS SUCIEDAD/TRIUNFO */
+        
+        /* Corazón Flechado Giratorio (Bucle Circular) */
+        .heart-loop {
+            display: inline-block;
+            animation: rotateHeart 4s linear infinite;
+        }
+
+        @keyframes rotateHeart {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        /* Gato Feliz saltando */
+        .happy-cat {
+            animation: bounce 0.6s infinite alternate;
+        }
+
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-20px); }
+        }
+
+        /* Lluvia de Confeti/Corazones */
+        .confetti {
+            position: absolute;
+            position: fixed;
+            top: -10px;
+            font-size: 2rem;
+            animation: fall linear forwards;
+            z-index: 1;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(105vh) rotate(360deg);
+            }
+        }
+
+        /* Corazón rompiéndose */
+        .broken-heart {
+            animation: shake 0.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(-5px); }
+            100% { transform: translateX(5px); }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="celebration-rain"></div>
+
+    <div class="card">
+        <h1 id="title">¿Quieres ser mi novia? </h1>
+        
+        <div id="decorations" class="decorations">
+            💐🐱❤️🐱💐
+        </div>
+
+        <div class="media-container">
+            <div id="status-initial">🐱✨</div>
+            
+            <div id="status-yes" class="hidden">
+                <span class="heart-loop">💘</span>
+                <span class="happy-cat">😸</span>
+            </div>
+            
+            <div id="status-no" class="hidden">
+                <span class="broken-heart">💔</span>
+                <span>😾💧</span>
+            </div>
+        </div>
+
+        <div class="buttons" id="button-group">
+            <button id="btn-yes">¡SÍ! 💖</button>
+            <button id="btn-no">No 😢</button>
+        </div>
+    </div>
+
+    <script>
+        const btnYes = document.getElementById('btn-yes');
+        const btnNo = document.getElementById('btn-no');
+        const title = document.getElementById('title');
+        const decorations = document.getElementById('decorations');
+        
+        const statusInitial = document.getElementById('status-initial');
+        const statusYes = document.getElementById('status-yes');
+        const statusNo = document.getElementById('status-no');
+        const rainContainer = document.getElementById('celebration-rain');
+
+        // Acción cuando dice SÍ
+        btnYes.addEventListener('click', () => {
+            // Cambiar textos y decoraciones
+            title.innerHTML = "¡SABÍA QUE DIRÍAS QUE SÍ! ¡TE AMO! 👑❤️";
+            decorations.innerHTML = "🌹👩‍❤️‍👨🌹🐱🎉🐱🌹👩‍❤️‍👨🌹";
+            
+            // Alternar los estados visuales
+            statusInitial.classList.add('hidden');
+            statusNo.classList.add('hidden');
+            statusYes.classList.remove('hidden');
+            
+            // Ocultar botones
+            document.getElementById('button-group').classList.add('hidden');
+
+            // Lanzar la animación de triunfo (lluvia de corazones y flores)
+            startCelebration();
+        });
+
+        // Acción cuando dice NO (Efecto triste)
+        btnNo.addEventListener('click', () => {
+            title.innerHTML = "¿Segura? Piénsalo bien... 🥺";
+            decorations.innerHTML = "🥀🍂🥀";
+            
+            statusInitial.classList.add('hidden');
+            statusYes.classList.add('hidden');
+            statusNo.classList.remove('hidden');
+
+            // Hacer que el botón SÍ crezca para que sea más fácil de clickear ;)
+            let currentScale = parseFloat(btnYes.style.transform.replace('scale(', '').replace(')', '')) || 1;
+            btnYes.style.transform = `scale(${currentScale + 0.3})`;
+        });
+
+        // Función para la lluvia de triunfo amoroso
+        function startCelebration() {
+            const elements = ['💖', '💘', '🌹', '🐱', '✨', '🌸'];
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const drop = document.createElement('div');
+                    drop.classList.add('confetti');
+                    drop.innerText = elements[Math.floor(Math.random() * elements.length)];
+                    drop.style.left = Math.random() * 100 + 'vw';
+                    drop.style.animationDuration = (Math.random() * 2 + 2) + 's'; // Entre 2 y 4 segundos
+                    drop.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+                    rainContainer.appendChild(drop);
+
+                    // Limpiar el elemento después de la animación
+                    setTimeout(() => drop.remove(), 4000);
+                }, i * 100);
+            }
+        }
+    </script>
+</body>
+</html>

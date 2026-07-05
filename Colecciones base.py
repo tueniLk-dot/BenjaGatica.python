@@ -62,6 +62,8 @@ def actualizar_fecha_venta(id_auto, nueva_fecha):
 #     next=input("desea actualizar otro vehiculo (s/n?")
 #     if next.lower()=="n":
 #         break
+# Crear funciones de validación independientes para cada dato (ID, marca,
+# modelo, año, ranking, fecha de ingreso, fecha de venta). 
 
 def validaString(h):
     if h=="" or h==" ":
@@ -109,15 +111,16 @@ def independientes():
     autos[id]=[marca, modelo,año,ranking,]
     operaciones[id]=[fechaDeIngreso,fechaDeVenta]
     
-print("TILT")
-mostrarAutos(autos)
-independientes()
-mostrarAutos(autos)
+# print("TILT")
+# mostrarAutos(autos)
+# independientes()
+# mostrarAutos(autos)
 
 def eliminar_auto(id_auto):
-    if id_auto in operaciones:
-        del autos[id_auto][-1]==nueva_fecha
-        del operaciones[id_auto][-1]==nueva_fecha
+    if id_auto in autos:
+
+        del autos[id_auto][-1]
+        del operaciones[id_auto][-1]
         return True
     else: return False
     
@@ -126,3 +129,61 @@ def eliminar_auto(id_auto):
 que hicismos y usamos en clase,
 debe tener manejo de errores o sea
 Try- except'''
+
+def eliminar_auto(id_auto):
+    if id_auto in autos:
+        del autos[id_auto]
+        del operaciones[id_auto]
+        return True
+    else: return False
+# def menu():
+#     while True:
+#         int(input('''   
+#                         1. Mostrar autos 
+#                         2. Mostrar autos vendidos por marca
+#                         3. Buscar auto vendidos por año
+#                         4. Buscar datos de autos 
+#                         5. Eliminar auto 
+#                         6. Salir 
+#                 '''))
+#         op=int(input("Ingrese la opcion que desea realizar "))
+#         if op==1:
+#             case_1:
+#             op1()
+#             case_1
+#             case_1
+#             case_1
+#             case_1
+#             case_1
+
+
+
+
+# while True:
+#     try:
+#         op=menu()
+#         match op:
+#             case 1:
+#                 mostrarAutos(autos)
+#             case 2:
+#                 marca=input("Ingrese la marca ")
+#                 autos_vendidos_por_marca(marca)
+#             case 3:
+#                 vendids=input("Autos vendidos por año ")
+#                 mostrarVendid(autos,operaciones)
+#             case 4:
+#                 actualizar_fecha_venta(autos)
+#             case 5:
+#                 id_auto=input("Ingrese el id del auto a eliminar ")
+#                 if eliminar_auto(id_auto):
+#                     print("Auto eliminado con exito ")
+#                 else: print("No se pudo eliminar el auto ")
+#             case 6:
+#                 print("Saliendo del programa...") 
+#                 break
+#             case _:
+#                 print("Opcion invalida ")
+#     except Exception as e:
+#         print(f"Ocurrio un error: {e}")
+                   
+    
