@@ -138,28 +138,32 @@ def  eliminar_auto(id_auto):
 
 def menu():
     while True:
-        int(input('''   
-                        1. Mostrar autos 
-                        2. Mostrar autos vendidos por marca
-                        3. Buscar auto vendidos por año
-                        4. Buscar datos de autos 
-                        5. Eliminar auto 
-                        6. Salir 
-                '''))
-        op=int(input("Ingrese la opcion que desea realizar "))
-        if op==1:
-            muestrAutos(autos)
-        elif op==2:
-            muestrAutosVendidos(autos)
-        elif op==3:
-            act=input("Ingrese actualizacion de fecha de venta (s/n)? ")
-            if act.lower()=="s":
-                id=input("Ingrese el id del auto: ")
-                fecha=input("Ingrese la fecha de venta: ")
-                if actualizar_fecha_venta(id,fecha):    
-                    print("Exito, nueva fecha de venta actualizada")
-                else:
-                    print("Metió mal las manos")
-        elif op==4:
-            marca=input("Ingrese la marca del auto: ")
-            autos_vendidos_por_marca(marca)
+        try:
+            
+            op=  int(input('''   Ingrese la opcion que desea realizar
+                                1. Mostrar autos 
+                                2. Mostrar autos vendidos por marca
+                                3. Buscar auto vendidos por año
+                                4. Crea auto
+                                5. Eliminar auto 
+                                6. Salir 
+                        '''))
+                
+            if op==1:
+                muestrAutos(autos)
+            elif op==2:
+                muestrAutosVendidos(autos)
+            elif op==3:
+                act=input("Ingrese actualizacion de fecha de venta (s/n)? ")
+                if act.lower()=="s":
+                    id=input("Ingrese el id del auto: ")
+                    fecha=input("Ingrese la fecha de venta: ")
+                    if actualizar_fecha_venta(id,fecha):    
+                        print("Exito, nueva fecha de venta actualizada")
+                    else:
+                        print("Metió mal las manos")
+            elif op==4:
+                
+                creAuto()
+        except ValueError:
+            print("Debe ingresar un número entero")
