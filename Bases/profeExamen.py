@@ -57,6 +57,7 @@ def actualizar_fecha_venta(id_auto, nueva_fecha):
         return True
     else:
         return False
+actualizar_fecha_venta("A002", "12-12-2025")
 
 # while True:
 #     id=input("Ingrese el id del auto: ")

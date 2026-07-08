@@ -45,7 +45,7 @@ def autos_vendidos_por_marca(marca):
     print(f"El total de autos vendidos es {total} en la marca {marca}")
 # autos_vendidos_por_marca("chevrolet")
 # print("A013" in operaciones) ## se usa para validar la accion si es true o false
-print(operaciones["A003"][-1]) ## validar para usar en codigo
+# print(operaciones["A003"][-1]) ## validar para usar en codigo
 def actualizar_fecha_venta(id_auto, nueva_fecha):
     if id_auto in operaciones:
         operaciones[id_auto][-1]==nueva_fecha
@@ -130,32 +130,64 @@ que hicismos y usamos en clase,
 debe tener manejo de errores o sea
 Try- except'''
 
-def eliminar_auto(id_auto):
-    if id_auto in autos:
-        del autos[id_auto]
-        del operaciones[id_auto]
-        return True
-    else: return False
-# def menu():
-#     while True:
-#         int(input('''   
-#                         1. Mostrar autos 
-#                         2. Mostrar autos vendidos por marca
-#                         3. Buscar auto vendidos por año
-#                         4. Buscar datos de autos 
-#                         5. Eliminar auto 
-#                         6. Salir 
-#                 '''))
-#         op=int(input("Ingrese la opcion que desea realizar "))
-#         if op==1:
-#             case_1:
-#             op1()
-#             case_1
-#             case_1
-#             case_1
-#             case_1
-#             case_1
 
+def menu():
+    print("-" *50)
+    print("----------MENÚ GESTIÓN DE AUTOS----------")
+    print("=" * 50)
+    print("1. Mostrar todos los autos")
+    print("2. Mostrar autos vendidos")
+    print("3. Total de autos vendidos por marca")
+    print("4. Actualizar fecha de venta")
+    print("5. Crear nuevo auto")
+    print("6. Eliminar auto")
+    print("0. Salir")
+    print("-"*50)
+def main():
+    while True:
+        menu()
+        try:
+            op=int(input("Selecciona una opcion: "))
+        except ValueError:
+            print("Error")
+            continue
+        try:
+            if op == 1:
+                mostrarAutos(autos)
+            elif op == 2:
+                mostrarVendid(autos)
+            elif op == 3:
+                marca=input("Ingrese una marca ")
+                if validaString(marca):
+                    print("Error")
+                else: autos_vendidos_por_marca(marca)
+            elif op == 4:
+                id_auto=input("ingrese el id del vehiculo ")
+                fechaCar=int(input("Ingrese la fecha de venta del vehiculo"))
+                if validaranking(fechaCar):
+                    print("error")
+                elif actualizar_fecha_venta(id_auto, fechaCar):
+                    print("Exito, nueva fecha de venta actualizada. ")
+                else: print(f"Error, no existe un vehiculo ingresado con ese ID {id_auto}")
+            elif op == 5:
+                independientes()
+            elif op==6:
+                idAutoElim=int(input("Ingresa el id del auto a eliminar del stock:")).lower
+                if eliminar_auto(idAutoElim):
+                    print("Auto eliminado con exito. ")
+                else: print(f"Error, ese id no existe. ")
+            elif op == 0:
+                print("saliendo del programa")
+                break
+            else: 
+                print("error, opcion no valida")
+        except Exception as e:
+            print(f"ocurrio un error. {e}")
+if __name__ == "__main__":
+    main()
+
+
+                
 
 
 
