@@ -19,23 +19,28 @@ operaciones = {
     'A006' : ['24-03-2024','24-09-2024'],
 }
 # print(operaciones["A002"][-1]) # -1 muestra el ltimo y 0 el primero
-# pendiente es q aun no se vende
+# "pendiente" es q aun no se vende
+# ---------------
 
 #funcion para mostrar los autos
 
 def mostrarAutos(diccio):
     for id, auto in diccio.items():
         print(f"{id}: {auto}")
-# mostrarAutos(autos)
+mostrarAutos(autos)
 # print("-"*50)
-#muestrasolo autos vendidos
+# muestra solo autos vendidos
+# ---------------------------- 
+
 def mostrarVendid(ope):
     for id, auto in ope.items():
         if operaciones[id][-1]!="Pendiente":
             print(f"{id}: {auto}")
-# mostrarVendid(autos)
+mostrarVendid(autos)
 # print("-"*25,"Paso 1", "-"*25)
-# #paso1
+# -------------------
+ 
+# #       paso1
 def autos_vendidos_por_marca(marca):
     total=0
     for id, auto in autos.items():
@@ -43,7 +48,7 @@ def autos_vendidos_por_marca(marca):
             if operaciones[id][-1]!="Pendiente":
                 total+=1
     print(f"El total de autos vendidos es {total} en la marca {marca}")
-# autos_vendidos_por_marca("chevrolet")
+autos_vendidos_por_marca("chevrolet")
 # print("A013" in operaciones) ## se usa para validar la accion si es true o false
 # print(operaciones["A003"][-1]) ## validar para usar en codigo
 def actualizar_fecha_venta(id_auto, nueva_fecha):
@@ -69,6 +74,7 @@ def validaString(h):
     if h=="" or h==" ":
         return True
     else: return False
+    
 def validaAño(a):
     if a<1900:
         return False
@@ -79,11 +85,11 @@ def validaranking(r):
         return False
     else: return True
 
-def independientes():
+def crearDesde0():
     id=input("Ingrese el ID ")
     if validaString(id):
         print("Dato invalido ")
-        return
+        
     marca=input("Ingrese la marca ")
     if validaString(marca):
         print("Dato invalido ")
@@ -92,9 +98,9 @@ def independientes():
     if validaString(modelo):
         print("Dato invalido ")
         return
-    año=input("Ingrese añ del vehiculo ")
-    if validaAño(año):
-        print("Dato invalido ")
+    anio=int(input("Ingresa el año: "))
+    if validaAño(anio):
+        print("El año debe ser superior a 1900")
         return
     ranking=input("Indique el rating del vehiculo ")
     if validaranking(ranking):
@@ -108,7 +114,7 @@ def independientes():
     if validaString(fechaDeVenta):
         print("Dato invalido ")
         return
-    autos[id]=[marca, modelo,año,ranking,]
+    autos[id]=[marca, modelo,anio,ranking,]
     operaciones[id]=[fechaDeIngreso,fechaDeVenta]
     
 # print("TILT")
@@ -132,18 +138,18 @@ Try- except'''
 
 
 def menu():
-    print("-" *50)
-    print("----------MENÚ GESTIÓN DE AUTOS----------")
-    print("=" * 50)
-    print("1. Mostrar todos los autos")
-    print("2. Mostrar autos vendidos")
-    print("3. Total de autos vendidos por marca")
-    print("4. Actualizar fecha de venta")
-    print("5. Crear nuevo auto")
-    print("6. Eliminar auto")
-    print("0. Salir")
-    print("-"*50)
-def main():
+    print('''--------------------------------------------------
+----------MENÚ GESTIÓN DE AUTOS----------
+==================================================
+1. Mostrar todos los autos
+2. Mostrar autos vendidos
+3. Total de autos vendidos por marca
+4. Actualizar fecha de venta
+5. Crear nuevo auto
+6. Eliminar auto
+0. Salir
+--------------------------------------------------''')
+def principal():
     while True:
         menu()
         try:
@@ -170,7 +176,7 @@ def main():
                     print("Exito, nueva fecha de venta actualizada. ")
                 else: print(f"Error, no existe un vehiculo ingresado con ese ID {id_auto}")
             elif op == 5:
-                independientes()
+                crearDesde0()
             elif op==6:
                 idAutoElim=int(input("Ingresa el id del auto a eliminar del stock:")).lower
                 if eliminar_auto(idAutoElim):
@@ -183,8 +189,8 @@ def main():
                 print("error, opcion no valida")
         except Exception as e:
             print(f"ocurrio un error. {e}")
-if __name__ == "__main__":
-    main()
+
+principal()
 
 
                 

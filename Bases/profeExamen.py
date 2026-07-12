@@ -37,7 +37,7 @@ def muestrAutosVendidos(d):
             print(f"{ id }: {vehiculo}")
     print("-"*50)
 # muestrAutosVendidos(autos)
-
+# paso 1
 def autos_vendidos_por_marca(marca):
     total=0
     for id, vehiculo in autos.items():
@@ -46,11 +46,11 @@ def autos_vendidos_por_marca(marca):
             if operaciones[id][-1]!="Pendiente":
                 total+=1
     print(f" El total de vehiculos vendidos de la marca {marca} es de {total}")
-
 # autos_vendidos_por_marca("Chevrolet")
-
 # print ('A013' in operaciones)
 # print(operaciones['A003'][-1])
+
+# paso 2
 def actualizar_fecha_venta(id_auto, nueva_fecha):
     if id_auto in operaciones:
         operaciones[id_auto][-1]=nueva_fecha
@@ -70,7 +70,7 @@ actualizar_fecha_venta("A002", "12-12-2025")
 #     next=input("Desea actualizar otro vehículo (s/n)?")
 #     if next.lower()=="n":
 #         break
-
+# paso 3
 def validaString(h):
     if h=="" or h==" ":
         return True
