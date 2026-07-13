@@ -37,6 +37,10 @@ operaciones = {
     'C006' : ['24-03-2024', '24-09-2024']
 }
 # 
+def mostrarPcs(pcsm):
+    for id, model in pcsm.items():
+        print(f"{id}:{model}")
+# mostrarPcs(pcs)
 def computadoras_vendidas_por_marca(marca):
     total=0
     for id_pcs, pc in pcs.items(): #.items() es primordial
@@ -45,6 +49,19 @@ def computadoras_vendidas_por_marca(marca):
             if operaciones[id_pcs][-1] != "Pendientes".lower():
                 total+=1
     print(f"La cantidad vendida equivale a {total} de la gran marca {marca} ")
+def mostrarPcsVendidos():
+    vendidos = []
+
+    for id_pc, fechas in operaciones.items():
+        fecha_venta = fechas[1]
+
+        if fecha_venta != "Pendiente":
+            marca = pcs[id_pc][0]
+            modelo = pcs[id_pc][1]
+            elemento = f"{marca} {modelo}--{id_pc}: {fecha_venta}"
+            vendidos.append(elemento)
+
+    return vendidos
 # computadoras_vendidas_por_marca("hp")
 def busqueda_por_anio(anio_min, anio_max):
     res=[]
@@ -149,3 +166,27 @@ def  eliminar_computadora(id_computadora):
         del operaciones [id_computadora] 
         return True
     else: False
+
+def menu():
+    print('''--------------------------------------------------
+----------MENÚ GESTIÓN DE AUTOS----------
+==================================================
+1. Mostrar todos los pcs
+2. Mostrar pcs vendidos
+3. Total de pcs vendidos por marca
+4. Actualizar fecha de venta
+5. Crear nuevo pc
+6. Eliminar pc
+0. Salir
+--------------------------------------------------''')
+def principal():
+    while True:
+        menu()
+        try:
+            op=int(input("Seleccione servicio"))
+            if op==1:
+                mostrarPcs(pcs)
+            elif op== 3:
+                marca=input("ingresa nombre de marca que buscar")
+                computadoras_vendidas_por_marca(marca)
+                
